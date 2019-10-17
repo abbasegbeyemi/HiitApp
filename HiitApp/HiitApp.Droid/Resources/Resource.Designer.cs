@@ -1917,6 +1917,8 @@ namespace HiitApp.Droid
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_reverseLayout = global::HiitApp.Droid.Resource.Styleable.RecyclerView_reverseLayout;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_spanCount = global::HiitApp.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::MvvmCross.Droid.Support.V7.RecyclerView.Resource.Styleable.RecyclerView_stackFromEnd = global::HiitApp.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::PCLStorage.Resource.String.ApplicationName = global::HiitApp.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::HiitApp.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -4890,7 +4892,10 @@ namespace HiitApp.Droid
 			public const int ApplicationName = 2131361834;
 			
 			// aapt resource value: 0x7f0a0029
-			public const int VersionName = 2131361833;
+			public const int Hello = 2131361833;
+			
+			// aapt resource value: 0x7f0a002b
+			public const int VersionName = 2131361835;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int abc_action_bar_home_description = 2131361792;

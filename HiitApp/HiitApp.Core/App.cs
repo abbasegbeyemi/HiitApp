@@ -11,6 +11,11 @@ namespace HiitApp.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
+            CreatableTypes()
+                .EndingWith("Repository")
+                .AsInterfaces()
+                .RegisterAsLazySingleton();
+
             RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
         }
     }
