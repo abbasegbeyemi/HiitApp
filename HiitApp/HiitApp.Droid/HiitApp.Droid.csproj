@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HiitApp.Core\HiitApp.Core.csproj">
-      <Project>{79410A20-C704-4AF5-B4D5-2A1E72017D1F}</Project>
+      <Project>{81C04425-7885-4274-B2EB-CBF22627FF2D}</Project>
       <Name>HiitApp.Core</Name>
     </ProjectReference>
   </ItemGroup>

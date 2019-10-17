@@ -16,7 +16,7 @@ namespace HiitApp.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-            RegisterNavigationServiceAppStart<ViewModels.FirstViewModel>();
+            RegisterNavigationServiceAppStart<ViewModels.CreateViewModel>();
         }
     }
 }
