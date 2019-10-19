@@ -11,27 +11,17 @@ namespace HiitApp.Core.ViewModels
         {
             this.workout = workout;
         }
+        int _sprint;
         public int Sprint
         {
-            get => workout.Sprint;
-            set
-            {
-                if (Sprint == value) return;
-                workout.Sprint = value;
-                RaisePropertyChanged();
-            }
+            get => _sprint;
+            set => SetProperty(ref _sprint, value);
         }
+        int _rest;
         public int Rest
         {
-            get => workout.Rest;
-            set
-            {
-                if (Rest == value) return;
-                workout.Rest = value;
-                RaisePropertyChanged();
-                    
-            }
+            get => _rest;
+            set => SetProperty(ref _rest, value);
         }
-
     }
 }

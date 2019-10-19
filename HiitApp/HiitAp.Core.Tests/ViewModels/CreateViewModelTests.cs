@@ -19,30 +19,27 @@ namespace HiitApp.Core.Tests.ViewModels
         public void SprintTimeComesFromWorkout()
         {
             // Arrange
-            Workout workout = new Workout
-            {
-                Sprint = 30,
-            };
-
-            // Act
+            Workout workout = new Workout();
             viewModel.Prepare(workout);
 
+            // Act
+            viewModel.Sprint = "30";
+
             // Assert
-            Assert.AreEqual(workout.Sprint, viewModel.Sprint);
+            Assert.AreEqual("30", viewModel.Sprint);
         }
         [Test]
         public void RestTimeComesFromWorkout()
         {
             // Arrange
-            Workout workout = new Workout
-            {
-                Rest = 30,
-            };
-            // Act
+            Workout workout = new Workout();
             viewModel.Prepare(workout);
 
+            // Act
+            viewModel.Rest = "30";
+
             // Assert
-            Assert.AreEqual(workout.Rest, viewModel.Rest);
+            Assert.AreEqual("30", viewModel.Rest);
         }
     }
 }
