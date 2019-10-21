@@ -1,7 +1,11 @@
 ﻿using NUnit.Framework;
 using HiitApp.Core.Models;
 using HiitApp.Core.ViewModels;
+using System.Threading.Tasks;
+using HiitApp.Core.Services;
 using System;
+using MvvmCross.Core.Navigation;
+using Moq;
 
 namespace HiitApp.Core.Tests.ViewModels
 {
@@ -9,11 +13,16 @@ namespace HiitApp.Core.Tests.ViewModels
     public class CreateViewModelTests
     {
         CreateViewModel viewModel;
+        Mock<IWorkoutsService> workoutService;
+        Mock<IMvxNavigationService> navigationService;
+
 
         [SetUp]
         public void SetUp()
         {
-            viewModel = new CreateViewModel();
+            navigationService = new Mock<IMvxNavigationService>();
+            workoutService = new Mock<IWorkoutsService>();
+            viewModel = new CreateViewModel(workoutService.Object, navigationService.Object);
         }
 
         [Test]
@@ -105,6 +114,24 @@ namespace HiitApp.Core.Tests.ViewModels
 
             // Assert
             Assert.AreEqual(DateTime.Today.Day, viewModel.Date.Day);
+        }
+
+        [Test]
+        public async Task AddNewWorkout_SavesANewCounter()
+        {
+            // Arrange
+            Workout workout = new Workout()
+            {
+                Id = 0,
+                Sprint = 30,
+                Rest = 30,                              
+            };
+
+            // Act
+            await viewModel.CreateWorkoutCommand.ExecuteAsync();
+
+            // Assert
+            workoutService.Verify(s => s.AddNewWorkout(It.IsAny<Workout>()), Times.Once);
         }
     }
 }
