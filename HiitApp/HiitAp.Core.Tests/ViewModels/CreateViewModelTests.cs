@@ -2,7 +2,6 @@
 using HiitApp.Core.Models;
 using HiitApp.Core.ViewModels;
 using System;
-using System.ComponentModel;
 
 namespace HiitApp.Core.Tests.ViewModels
 {
@@ -93,6 +92,19 @@ namespace HiitApp.Core.Tests.ViewModels
             
             // Assert
             Assert.IsTrue(propertyChangedRaised);
+        }
+
+        [Test]
+        public void CreatingViewModel_SetsTheCorrectDate()
+        {
+            // Arrange
+            Workout workout = new Workout();
+
+            // Act
+            viewModel.Prepare(workout);
+
+            // Assert
+            Assert.AreEqual(DateTime.Today.Day, viewModel.Date.Day);
         }
     }
 }

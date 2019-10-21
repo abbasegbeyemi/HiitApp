@@ -6,7 +6,7 @@ namespace HiitApp.Core.Services
 {
     public interface IWorkoutsService
     {
-        Task<Workout> AddNewWorkout(int sprint, int rest);
+        Task<Workout> AddNewWorkout(Workout workout);
         Task<List<Workout>> GetAllWorkouts();
         Task DeleteWorkout(Workout workout);
         Task IncrementReps(Workout workout);
