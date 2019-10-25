@@ -24,47 +24,26 @@ namespace HiitApp.Core.Tests.ViewModels
         [Test]
         public async Task IncrementRepsInTheWorkoutBackingLayer()
         {
-            // Arrange
-            Workout workout = new Workout()
-            {
-                Sprint = 30
-            };
-            viewModel.Prepare(workout);
-
-            // Act
-            int check = 0;
-            for (int i = 1; i < 4; i++)
-            {
-                //await viewModel.
-                //check = i;
-            }
+            // Act 
+            await viewModel.IncrementRepsCommand.ExecuteAsync();
 
             // Assert
-            Assert.AreEqual(check, workout.Reps);     
+            service.Verify(w => w.IncrementReps(It.IsAny<Workout>()), Times.Once);
         }
 
         [Test]
-        public void CheckThatRepsChangeRaisesPropertyChanged()
+        public async Task CheckThatRepsChangeRaisesPropertyChanged()
         {
             // Arrange
             bool propertyChangedRaised = false;
-            Workout workout = new Workout()
-            {
-                Sprint = 30
-            };
-            viewModel.Prepare(workout);
             viewModel.PropertyChanged +=
                 (s, e) => propertyChangedRaised = (e.PropertyName == "Reps");
 
             // Act
-            for (int i = 0; i < 4; i++)
-            {
-                //viewModel.Reps++;
-            }
+            await viewModel.IncrementRepsCommand.ExecuteAsync();
 
             // Assert
             Assert.IsTrue(propertyChangedRaised);
-
         }
     }
 }

@@ -17,7 +17,7 @@ namespace HiitApp.Core.ViewModels
         {
             this.service = service;
             this.navigation = navigation;
-            CreateWorkoutCommand = new MvxAsyncCommand(CreateWorkout);
+            GoToTrainingCommand = new MvxAsyncCommand(CreateWorkout);
         }
 
         /*** Methods and Tasks ***/
@@ -36,7 +36,7 @@ namespace HiitApp.Core.ViewModels
 
         /*** Command Properties ***/
 
-        public MvxAsyncCommand CreateWorkoutCommand { get; }
+        public MvxAsyncCommand GoToTrainingCommand { get; }
 
         /*** Workout Properties***/
 

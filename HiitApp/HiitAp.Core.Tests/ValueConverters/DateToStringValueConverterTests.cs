@@ -16,10 +16,10 @@ namespace HiitApp.Core.Tests.ValueConverters
             DateTime dateToConvert = DateTime.Now.Date;
 
             // Act
-            var converted = vc.Convert(dateToConvert, null, null, null);
+            string converted = (string)vc.Convert(dateToConvert, null, null, null);
 
             // Assert
-            Assert.AreEqual("21/10/2019 00:00:00", converted);
+            Assert.AreEqual(DateTime.Now.Date.ToString(), converted);
         }
 
         [Test]
@@ -27,10 +27,10 @@ namespace HiitApp.Core.Tests.ValueConverters
         {
             // Arrange
             var vc = new DateToStringValueConverter();
-            string dateStringToConvert = "21/10/2019 00:00:00";
+            string dateStringToConvert = DateTime.Now.Date.ToString(); ;
 
             // Act
-            var convertedBack = vc.ConvertBack(dateStringToConvert, null, null, null);
+            DateTime convertedBack = (DateTime)vc.ConvertBack(dateStringToConvert, null, null, null);
 
             // Assert
             Assert.AreEqual(DateTime.Now.Date, convertedBack);
